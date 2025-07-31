@@ -16,7 +16,7 @@ jobs:
   bulid:
     runs-on: ubuntu-latest
     steps:
-      # - uses: ./.github/actions/checkout
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/bulid
       # - uses: ./.github/actions/sonar
       # - uses: ./.github/actions/test-report
