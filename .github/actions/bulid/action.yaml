@@ -3,5 +3,5 @@ description: Build the project
 runs:
   using: composite
   steps:
-    - run: cd my-gradle-project && ./gradlew clean build
+    - run: cd my-gradle-project && ./gradlew build
       shell: bash
