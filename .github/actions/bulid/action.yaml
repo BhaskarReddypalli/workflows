@@ -3,6 +3,5 @@ description: Build the project
 runs:
   using: composite
   steps:
-    -echo "Building the project..."
-    # - run: ./gradlew clean build
-    #   shell: bash
+    - run: ./gradlew clean build
+      shell: bash
