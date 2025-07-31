@@ -1,5 +1,5 @@
 name: Manual Approval
-description:Pauses for manual approval before proceeding
+description: Pauses for manual approval before proceeding
 runs:
   using: composite
   steps:
