@@ -4,3 +4,7 @@ runs:
   using: composite
   steps:
     - run: aws s3 cp build/libs/app-artifact.jar s3://your-bucket-name/path/ --region us-east-1
+      shell: bash
+    - run: echo "Artifact uploaded to S3 successfully."
+      shell: bash
+    
