@@ -3,7 +3,7 @@ description: Sync .jar to S3 bucket
 runs:
   using: composite
   steps:
-    - run: aws s3 cp build/libs/my-gradle-project.jar s3://your-bucket-name/path/ --region us-east-1
+    - run: aws s3 cp build/libs/*.jar s3://your-bucket-name/path/ --region us-east-1
       shell: bash
     - run: echo "Artifact uploaded to S3 successfully."
       shell: bash
