@@ -1,0 +1,9 @@
+name: Upload build artifacts
+description: Upload .jar file
+runs:
+  using: composite
+  steps:
+    - uses: actions/upload-artifact@v4
+      with:
+        name: app-artifact
+        path: build/libs/app-artifact.jar

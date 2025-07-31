@@ -1,0 +1,6 @@
+name: Upload to S3
+description: Sync .jar to S3 bucket
+runs:
+  using: composite
+  steps:
+    - run: aws s3 cp build/libs/app-artifact.jar s3://your-bucket-name/path/ --region us-east-1

@@ -1,0 +1,10 @@
+name: Run Tests and Upload Report
+description: Run tests and publish Junit report
+runs:
+  using: composite
+  steps:
+    - run: ./gradlew test
+    - uses: actions/upload-artifact@v4
+      with:
+        name: test-report
+        path: build/test-results/test

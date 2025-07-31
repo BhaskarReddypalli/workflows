@@ -1,0 +1,6 @@
+name: Build Project
+description: Build the project
+runs:
+  using: composite
+  steps:
+    - run: ./gradlew clean build

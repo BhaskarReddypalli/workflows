@@ -1,0 +1,7 @@
+name: Manual Approval
+description:Pauses for manual approval before proceeding
+runs:
+  using: composite
+  steps:
+    - name: Wait for approval
+      run: echo "Waiting for manual approval..."

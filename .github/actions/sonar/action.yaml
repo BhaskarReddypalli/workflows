@@ -1,0 +1,8 @@
+name: SonarQube Analysis
+description: Run SonarQube analysis on the project
+runs:
+  using: composite
+  steps:
+    - run: ./gradlew sonarqube
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

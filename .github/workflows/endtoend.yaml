@@ -1,0 +1,30 @@
+name: end-to-end workflow
+description: End-to-end workflow for building, testing, and deploying code
+on:
+  workflow_dispatch:
+    inputs:
+      DEPLOY_ENV:
+        description: 'Environment to deploy to'
+        required: true
+        default: dev
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+jobs:
+  bulid:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/checkout
+      - uses: ./.github/actions/bulid
+      - uses: ./.github/actions/sonar
+      - uses: ./.github/actions/test-report
+      - uses: ./.github/actions/manual-approval
+        with:
+          Environment: ${{ github.event.inputs.DEPLOY_ENV }}
+      - uses: ./.github/actions/upload-artifact
+      - uses: ./.github/actions/sync-s3
+      - uses: ./.github/actions/ssh-deploy
+      - uses: ./.github/actions/github-release
+      
