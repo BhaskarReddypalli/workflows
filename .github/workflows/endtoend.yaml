@@ -16,18 +16,54 @@ on:
           - staging
           - prod
 jobs:
-  custom_jobs:
+  bulid:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        name:bulid code
       - uses: ./.github/actions/bulid
-      - uses: ./.github/actions/sonar
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: test code
       - uses: ./.github/actions/test-report
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: sonar code
+      - uses: ./.github/actions/sonar
+  manual_approval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: manual approval
       - uses: ./.github/actions/manual-approval
         with:
           Environment: ${{ github.event.inputs.DEPLOY_ENV }}
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: deploy code
       - uses: ./.github/actions/Upload-artifact
       - uses: ./.github/actions/sync-s3
       - uses: ./.github/actions/ssh-deploy
-      - uses: ./.github/actions/github-release
+      - uses: ./.github/actions/github-release      
+  
+  # custom_jobs:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: ./.github/actions/bulid
+  #     - uses: ./.github/actions/sonar
+  #     - uses: ./.github/actions/test-report
+  #     - uses: ./.github/actions/manual-approval
+  #       with:
+  #         Environment: ${{ github.event.inputs.DEPLOY_ENV }}
+  #     - uses: ./.github/actions/Upload-artifact
+  #     - uses: ./.github/actions/sync-s3
+  #     - uses: ./.github/actions/ssh-deploy
+  #     - uses: ./.github/actions/github-release
       
