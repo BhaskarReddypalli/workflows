@@ -1,9 +1,9 @@
 name: end-to-end workflow
 description: End-to-end workflow for building, testing, and deploying code
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch:
     inputs:
       DEPLOY_ENV:
