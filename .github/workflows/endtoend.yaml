@@ -23,7 +23,7 @@ jobs:
       - uses: ./.github/actions/manual-approval
         with:
           Environment: ${{ github.event.inputs.DEPLOY_ENV }}
-      - uses: ./.github/actions/upload-artifact
+      - uses: ./.github/actions/Upload-artifact
       - uses: ./.github/actions/sync-s3
       - uses: ./.github/actions/ssh-deploy
       - uses: ./.github/actions/github-release
