@@ -8,3 +8,4 @@ runs:
       with:
         name: test-report
         path: build/test-results/test
+      shell: bash
