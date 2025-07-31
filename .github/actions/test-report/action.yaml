@@ -3,9 +3,11 @@ description: Run tests and publish Junit report
 runs:
   using: composite
   steps:
-    - run: ./gradlew test
-    - uses: actions/upload-artifact@v4
+    - name: Run Tests
+      run: cd my-gradle-project && ./gradlew test
+      shell: bash
+    - name: Upload Test Report
+      uses: actions/upload-artifact@v4
       with:
         name: test-report
-        path: build/test-results/test
-      shell: bash
+        path: my-gradle-project/build/test-results/test
