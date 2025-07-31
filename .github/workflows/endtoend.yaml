@@ -16,15 +16,15 @@ jobs:
   bulid:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./actions/checkout
-      - uses: ./actions/bulid
-      - uses: ./actions/sonar
-      - uses: ./actions/test-report
-      - uses: ./actions/manual-approval
+      - uses: ./.github/actions/checkout
+      - uses: ./.github/actions/bulid
+      - uses: ./.github/actions/sonar
+      - uses: ./.github/actions/test-report
+      - uses: ./.github/actions/manual-approval
         with:
           Environment: ${{ github.event.inputs.DEPLOY_ENV }}
-      - uses: ./actions/upload-artifact
-      - uses: ./actions/sync-s3
-      - uses: ./actions/ssh-deploy
-      - uses: ./actions/github-release
+      - uses: ./.github/actions/upload-artifact
+      - uses: ./.github/actions/sync-s3
+      - uses: ./.github/actions/ssh-deploy
+      - uses: ./.github/actions/github-release
       
