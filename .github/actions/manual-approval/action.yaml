@@ -5,3 +5,4 @@ runs:
   steps:
     - name: Wait for approval
       run: echo "Waiting for manual approval..."
+      shell: bash
