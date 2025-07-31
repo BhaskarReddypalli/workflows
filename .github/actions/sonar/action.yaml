@@ -4,5 +4,6 @@ runs:
   using: composite
   steps:
     - run: ./gradlew sonarqube
+      shell: bash
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
