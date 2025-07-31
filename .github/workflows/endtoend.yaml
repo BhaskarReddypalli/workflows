@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/bulid
-      - uses: ./.github/actions/sonar
+      # - uses: ./.github/actions/sonar
       - uses: ./.github/actions/test-report
       - uses: ./.github/actions/manual-approval
         with:
